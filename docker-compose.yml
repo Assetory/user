@@ -101,7 +101,7 @@ services:
         networks:
             - gateway
 
-            dashboard:
+    dashboard:
         container_name: dashboard
         restart: always
         image: assetory/dashboard:local
