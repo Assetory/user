@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 volumes:
     postgres_data:
@@ -70,38 +70,6 @@ services:
         networks:
             - gateway
 
-    dashboard:
-        container_name: dashboard
-        restart: always
-        image: assetory/dashboard:develop
-        ports: 
-            - "3005:3005"
-        environment: 
-            - CHOKIDAR_USEPOLLING=1
-            - SERVICE_NAME=dashboard
-            - SERVICE_PORT=3005
-            - SERVICE_ENV=local
-        depends_on:
-            - gateway
-        networks:
-            - gateway
-
-    landingpage:
-        container_name: landingpage
-        restart: always
-        image: assetory/landingpage:develop
-        environment: 
-            - CHOKIDAR_USEPOLLING=1
-            - SERVICE_NAME=landingpage
-            - SERVICE_PORT=3000
-            - SERVICE_ENV=local
-        ports: 
-            - "3000:3000"
-        depends_on:
-            - gateway
-        networks:
-            - gateway
-
     user:
         build: ./
         container_name: user
@@ -110,13 +78,35 @@ services:
         ports: 
             - "3010:3010"
             - "3800:3800"
-        environment: 
-            - CHOKIDAR_USEPOLLING=1
-            - SERVICE_NAME=user
-            - SERVICE_PORT=3010
-            - SERVICE_ENV=local
+        environment:
+            CHOKIDAR_USEPOLLING: 1
+            SERVICE_NAME: user
+            SERVICE_PORT: 3010
+            SERVICE_ENV: local
         volumes:
             - ./src:/app/src
+        depends_on:
+            - gateway
+        networks:
+            - gateway
+
+    landingpage:
+        container_name: landingpage
+        restart: always
+        image: assetory/landingpage:local
+        ports: 
+            - "3000:3000"
+        depends_on:
+            - gateway
+        networks:
+            - gateway
+
+            dashboard:
+        container_name: dashboard
+        restart: always
+        image: assetory/dashboard:local
+        ports: 
+            - "3005:3005"
         depends_on:
             - gateway
         networks:
