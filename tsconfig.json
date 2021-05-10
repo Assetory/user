@@ -1,0 +1,30 @@
+{
+  "compilerOptions":
+  {
+      "target": "es5",
+      "module": "commonjs",
+      "lib": ["es6"],
+      "allowJs": false,
+      "jsx": "react",
+      "outDir": "build/server",
+      // "types" : [
+      //     "jest",
+      //     "node"
+      // ],
+      "rootDir": "src/server",
+      "strict": true,
+      "noImplicitAny": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true
+  },
+  "exclude":
+  [
+      "./node_modules",
+      "./_legacy",
+      "./build",
+      "./tests",
+      "./jest.config.js",
+      "./jsdoc.config.js",
+      "./src/client"
+  ]
+}

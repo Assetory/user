@@ -1,0 +1,19 @@
+FROM nikolaik/python-nodejs:python3.8-nodejs12-slim
+
+WORKDIR /app
+
+ARG SERVICE_NAME_ARG=${SERVICE_NAME}
+ARG SERVICE_PORT_ARG=${SERVICE_PORT}
+ARG SERVICE_ENV_ARG=${SERVICE_ENV}
+
+ENV SERVICE_NAME=${SERVICE_NAME_ARG}
+ENV SERVICE_PORT=${SERVICE_PORT_ARG}
+ENV SERVICE_ENV=${SERVICE_ENV_ARG}
+
+COPY package.json .
+
+RUN npm install --quiet
+
+COPY . .
+
+CMD ["npm", "start"]
