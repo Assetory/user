@@ -88,11 +88,11 @@ jobs:
       # Archive Docker image
       - run:
           name: Archive Docker image
-          command: docker save -o image.tar $IMAGE_NAME
+          command: docker save -o image_local.tar $IMAGE_NAME
       - persist_to_workspace:
           root: .
           paths:
-            - ./image.tar
+            - ./image_local.tar
 
   build-latest:
     executor: docker-publisher
@@ -118,11 +118,11 @@ jobs:
       # Archive Docker image
       - run:
           name: Archive Docker image
-          command: docker save -o image.tar $IMAGE_NAME
+          command: docker save -o image_latest.tar $IMAGE_NAME
       - persist_to_workspace:
           root: .
           paths:
-            - ./image.tar
+            - ./image_latest.tar
 
   publish-local:
     executor: docker-publisher
@@ -134,7 +134,7 @@ jobs:
       # Load archived Docker image
       - run:
           name: Load archived Docker image
-          command: docker load -i /tmp/workspace/image.tar
+          command: docker load -i /tmp/workspace/image_local.tar
       
       # Publish Image to DockerHub
       - run:
@@ -172,7 +172,7 @@ jobs:
       # Load archived Docker image
       - run:
           name: Load archived Docker image
-          command: docker load -i /tmp/workspace/image.tar
+          command: docker load -i /tmp/workspace/image_latest.tar
       
       # Publish Image to DockerHub
       - run:
