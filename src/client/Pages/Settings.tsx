@@ -11,7 +11,7 @@ interface IProps {
     history: any;
 }
 
-const Private : React.FunctionComponent<IProps> = ({ history }) : React.ReactElement =>
+const Settings : React.FunctionComponent<IProps> = ({ history }) : React.ReactElement =>
     {
         const [ keycloak, setKeycloak ] = useState<Keycloak.KeycloakInstance>(null);
         const [ authenticated, setAuthenticated ] = useState<boolean>(false);
@@ -30,7 +30,6 @@ const Private : React.FunctionComponent<IProps> = ({ history }) : React.ReactEle
             {
                 const newUserObj = new UserInfoObj(keycloakInfo);
                 newUserObj.getFromKeycloak().then(data => console.log(data));
-                newUserObj.getFromDatabase().then(data => console.log(data));
 
                 console.log(newUserObj);
 
@@ -79,22 +78,7 @@ const Private : React.FunctionComponent<IProps> = ({ history }) : React.ReactEle
                 {
                     !loading ?
                     <>
-                        <ul>
-                            <li><b>ID:</b> { userInfo[ 'id' ] }</li>
-                            <li><b>Email:</b> { userInfo[ 'email' ] }</li>
-                            <li><b>Email Verified:</b> { userInfo[ 'verified' ] }</li>
-                            <li><b>Username:</b> { userInfo[ 'userName' ] }</li>
-                            <li><b>Groups:</b>
-                                <ul>
-                                {
-                                    userInfo[ 'groups' ].map((group, i) =>
-                                    {
-                                        return <li key={ i }>{ group }</li>;
-                                    })
-                                }
-                                </ul>
-                            </li>
-                        </ul>
+                        <h3>Settings</h3>
 
                         <button onClick={() => logout()}>
                             Logout
@@ -107,4 +91,4 @@ const Private : React.FunctionComponent<IProps> = ({ history }) : React.ReactEle
         );
     };
 
-export default Private;
+export default Settings;

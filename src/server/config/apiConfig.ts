@@ -22,6 +22,6 @@ export class ApiConfig
         });
         app.use(express.urlencoded({ extended: true }));
         app.use(express.json());
-        app.use(`/${ process.env.SERVICE_NAME }/static`, express.static(path.join(__dirname, '../../../build/client/'), { index: false }));
+        app.use(`/dashboard/${ process.env.SERVICE_NAME }/static`, express.static(path.join(__dirname, '../../../build/client/'), { index: false }));
     }
 }

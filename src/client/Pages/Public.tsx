@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Public : React.FunctionComponent = () : React.ReactElement =>
+const Settings : React.FunctionComponent = () : React.ReactElement =>
 {
     return (
         <div>
@@ -9,4 +9,4 @@ const Public : React.FunctionComponent = () : React.ReactElement =>
     );
 };
 
-export default Public;
+export default Settings;

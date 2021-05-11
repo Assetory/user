@@ -6,10 +6,11 @@ const Header : React.FunctionComponent = () : React.ReactElement =>
         <div>
             <ul>
                 <li><a href={'/'}>Back</a></li>
-                <li><a href={`/${ process.env.SERVICE_NAME }/api/test`}>Api test</a></li>
-                <li><a href={`/${ process.env.SERVICE_NAME }/`}>Dashboard home</a></li>
-                <li><a href={`/${ process.env.SERVICE_NAME }/public`}>Public page</a></li>
-                <li><a href={`/${ process.env.SERVICE_NAME }/error`}>Error page</a></li>
+                <li><a href={`/${ process.env.SERVICE_NAME }/api/test`}>User Api test</a></li>
+                <li><a href={`/dashboard/`}>Dashboard home</a></li>
+                <li><a href={`/dashboard/${ process.env.SERVICE_NAME }/`}>USER home</a></li>
+                <li><a href={`/dashboard/${ process.env.SERVICE_NAME }/profile`}>USER Profile </a></li>
+                <li><a href={`/dashboard/${ process.env.SERVICE_NAME }/error`}>Error page</a></li>
             </ul>
 
             <hr />

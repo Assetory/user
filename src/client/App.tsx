@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-import { NotFound, Public, Private } from './Pages/';
+import { NotFound, Public, Settings } from './Pages/';
 import { Header } from './Components';
 
 const App : React.FunctionComponent = () : React.ReactElement =>
@@ -12,9 +12,8 @@ const App : React.FunctionComponent = () : React.ReactElement =>
             
             <Router>
                 <Switch>
-                    <Route exact path={`/${ process.env.SERVICE_NAME }/`} component={ Private } />
-                    <Route exact path={`/${ process.env.SERVICE_NAME }/public`} component={ Public } />
-                    <Route path={`/${ process.env.SERVICE_NAME }/`} component={ NotFound } />
+                    <Route exact path={`/dashboard/${ process.env.SERVICE_NAME }/`} component={ Settings } />
+                    <Route path={`/dashboard/${ process.env.SERVICE_NAME }/`} component={ NotFound } />
                 </Switch>
             </Router>
         </div>

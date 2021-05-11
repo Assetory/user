@@ -127,7 +127,7 @@ class App
             });
         });
 
-        this.app.get(`/${ this.serviceName }/*`, (req, res) =>
+        this.app.get(`/dashboard/${ this.serviceName }/*`, (req, res) =>
         {
             res.sendFile(path.join(__dirname, '../../build/client', 'index.html'));
         });

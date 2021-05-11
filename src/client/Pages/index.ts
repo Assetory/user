@@ -1,5 +1,5 @@
 import Public from './Public';
-import Private from './Private';
 import NotFound from './NotFound';
+import Settings from './Settings';
 
-export { Private, NotFound, Public };
+export { NotFound, Public, Settings };
