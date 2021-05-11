@@ -78,7 +78,10 @@ const Settings : React.FunctionComponent<IProps> = ({ history }) : React.ReactEl
                 {
                     !loading ?
                     <>
-                        <h3>Settings</h3>
+                        Home (SETTINGS) Component
+
+                        <br />
+                        <br />
 
                         <button onClick={() => logout()}>
                             Logout

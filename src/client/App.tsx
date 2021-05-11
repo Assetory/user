@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-import { NotFound, Public, Settings } from './Pages/';
+import { NotFound, Profile, Settings } from './Pages/';
 import { Header } from './Components';
 
 const App : React.FunctionComponent = () : React.ReactElement =>
@@ -13,6 +13,7 @@ const App : React.FunctionComponent = () : React.ReactElement =>
             <Router>
                 <Switch>
                     <Route exact path={`/dashboard/${ process.env.SERVICE_NAME }/`} component={ Settings } />
+                    <Route exact path={`/dashboard/${ process.env.SERVICE_NAME }/profile`} component={ Profile } />
                     <Route path={`/dashboard/${ process.env.SERVICE_NAME }/`} component={ NotFound } />
                 </Switch>
             </Router>

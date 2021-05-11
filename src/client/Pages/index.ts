@@ -1,5 +1,5 @@
-import Public from './Public';
 import NotFound from './NotFound';
+import Profile from './Profile';
 import Settings from './Settings';
 
-export { NotFound, Public, Settings };
+export { NotFound, Profile, Settings };
