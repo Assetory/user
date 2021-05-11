@@ -104,7 +104,7 @@ class App
 
         this.app.get(`/${ this.serviceName }/api/test`, testRoute);
 
-        this.app.post(`/${ process.env.SERVICE_NAME }/api/user/create`, function(req, res)
+        this.app.post(`/${ process.env.SERVICE_NAME }/api/create`, function(req, res)
         {
             r.db('User').table('users').insert(req.query).run(database?.connection).then((data : any) =>
             {
